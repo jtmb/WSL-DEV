@@ -1,7 +1,7 @@
 # Set Git Creds
 
-GIT_USER_EMAIL="james.branco@gmail.com"
-GIT_USER_NAME="jtmb"
+GIT_USER_EMAIL="your-email-here"
+GIT_USER_NAME="username-here"
 
 # Define versions and packages
 ANSIBLE_VERSION="2.16"

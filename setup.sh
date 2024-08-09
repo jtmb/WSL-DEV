@@ -42,13 +42,15 @@ execute_functions() {
             "$func"
         else
             echo "Function $func not found!"
+            help_function
+            exit 1
         fi
     done
 }
 
 # Main script logic to handle arguments
 if [ $# -eq 0 ]; then
-    echo "No arguments provided. Use '-help' for usage information."
+    help_function
     exit 1
 fi
 
