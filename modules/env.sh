@@ -1,9 +1,8 @@
 # Function to create .secrets folder and files
 create_secrets() {
-    local secrets_dir="$HOME/.secrets"
-    
     echo "Creating .secrets directory..."
     mkdir -p "$secrets_dir"
+    mkdir -p "$repos_dir"
     
     echo "Creating files..."
     
