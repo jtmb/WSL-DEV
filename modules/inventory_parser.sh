@@ -18,8 +18,8 @@ help() {
 # Function to execute ansible command
 inv() {
     # Debugging: Print the number of arguments
-    echo "Number of arguments: $#"
-    echo "Arguments: $@"
+    # echo "Number of arguments: $#"
+    # echo "Arguments: $@"
 
     # Check if at least 2 arguments are provided
     if [ $# -lt 2 ]; then
