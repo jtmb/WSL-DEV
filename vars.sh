@@ -18,7 +18,7 @@ ALIASES=(
     "alias ll='ls -la'" #example
     "alias wsl='cd /WSL-DEV && bash setup.sh'" 
 )
-
+# Define your Secrets
 SECRETS_FILES=(
     "inventory.ini"
     "vault_server"
