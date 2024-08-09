@@ -34,7 +34,7 @@ A simple run command gets your instance running:
 
 ( *Make sure to set your vars in vars.sh* )
 ```shell
-./setup.sh
+./setup.sh install_all
 ```
 
 or run a specific module:
