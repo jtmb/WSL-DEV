@@ -49,8 +49,8 @@ or run a specific module:
 ```shell
 # Set Git Creds
 
-GIT_USER_EMAIL="james.branco@gmail.com"
-GIT_USER_NAME="jtmb"
+GIT_USER_EMAIL="your.email@gmail.com"
+GIT_USER_NAME="username"
 ```  
 text
 
