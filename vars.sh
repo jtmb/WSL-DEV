@@ -18,6 +18,8 @@ ALIASES=(
     "alias ll='ls -la'" #example
     "alias wsl='cd /WSL-DEV && bash setup.sh'"
     "alias auth-me='bash /scripts/vault-auth.sh'"
+    "alias inv='bash /scripts/inventory-parser.sh'"
+    "alias cdi='cd $HOME/.secrets/'"
 )
 # Define your Secrets
 SECRETS_FILES=(

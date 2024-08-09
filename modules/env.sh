@@ -12,7 +12,34 @@ create_secrets() {
             echo "Creating $file with content..."
             cat <<EOF > "$secrets_dir/$file"
 [prd]
+desired_hostname_here      ansible_host=192.168.0.x
+
 [dev]
+desired_hostname_here      ansible_host=192.168.0.x
+
+[other]
+desired_hostname_here        ansible_host=192.168.0.x
+
+[network]
+router          ansible_host=192.168.0.1
+
+[prd:vars]
+ansible_user=$USER
+ansible_port=22
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=/home/$USER/.ssh/id_ed25519
+
+[dev:vars]
+ansible_user=$USER
+ansible_port=22
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=/home/$USER/.ssh/id_ed25519
+
+[other:vars]
+ansible_user=$USER
+ansible_port=22
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+ansible_ssh_private_key_file=/home/$USER/.ssh/id_ed25519
 EOF
         else
             echo "Creating $file..."
