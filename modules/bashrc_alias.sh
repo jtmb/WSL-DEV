@@ -4,8 +4,9 @@ add_aliases() {
     
     echo "Adding aliases to $bashrc_file..."
     # Setup /WSL-DEV folder for wsl alias
+    sudo rm /WSL-DEV
     sudo cp -r $(pwd) / 
-    sudo chmod 700 /WSL-DEV
+    sudo chmod 755 /WSL-DEV
     sudo chmod +x /WSL-DEV/setup.sh
     
     # Backup the original .bashrc

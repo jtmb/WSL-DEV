@@ -17,10 +17,10 @@ create_vault_auth_script() {
     # Check if the vault_server file exists
     if [ -e "$vault_server_file" ] && [ -e "$vault_token_file" ]; then
         echo "Creating /scripts directory..."
-        mkdir -p "$script_dir"
+        sudo mkdir -p "$script_dir"
         
         echo "Creating vault-auth.sh script..."
-        cat <<EOF > "$script_path"
+        sudo tee "$script_path" > /dev/null <<EOF
 #!/bin/bash
 
 # Auth to Vault
@@ -44,7 +44,7 @@ fi
 EOF
 
         # Make the script executable
-        chmod +x "$script_path"
+        sudo chmod +x "$script_path"
         
         echo "vault-auth.sh script created successfully in /scripts!"
     else

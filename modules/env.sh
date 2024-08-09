@@ -44,7 +44,7 @@ set_permissions() {
                 fi
             done
         else
-            sudo chmod "$perms" "$path"
+            sudo chmod -R "$perms" "$path"
         fi
     done
     

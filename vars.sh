@@ -16,7 +16,8 @@ export repos_dir="$HOME/.repos"
 # Define your aliases
 ALIASES=(
     "alias ll='ls -la'" #example
-    "alias wsl='cd /WSL-DEV && bash setup.sh'" 
+    "alias wsl='cd /WSL-DEV && bash setup.sh'"
+    "alias auth-me='bash /scripts/vault-auth.sh'"
 )
 # Define your Secrets
 SECRETS_FILES=(
@@ -30,6 +31,6 @@ PERMISSIONS_CONFIG=(
     "$HOME/.ssh 700"
     "$HOME/.ssh/id_* 600"
     "$HOME/.secrets 700"
-    "$HOME/.repos 700"
-    "/scripts 700"
+    "$HOME/.repos 755"
+    "/scripts 755"
 )
