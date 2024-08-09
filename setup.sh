@@ -9,6 +9,7 @@ source modules/vault.sh
 source modules/help.sh
 source modules/env.sh
 source modules/bashrc_alias.sh
+source modules/git_config.sh
 source vars.sh
 
 # Function for help screen 
@@ -25,6 +26,7 @@ install_all() {
     add_aliases
     create_secrets
     set_permissions
+    configure_git
 }
 
 # Function to check if a function is defined
