@@ -46,12 +46,6 @@ or run a specific module:
 ```
 
 ## Environment Variables explained
-
-```shell
-    ANSIBLE_SUDO_PASS=raspberry
-```  
-text
-
 ```shell
 # Set Git Creds
 
