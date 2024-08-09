@@ -11,7 +11,7 @@ help() {
     echo "  install_packages    Install required packages."
     echo "  install_ansible      Install Ansible."
     echo "  install_terraform   Install Terraform."
-    echo "  install_vault       Install Vault."
+    echo "  install_vault       Install Vault."/
     echo "  add_aliases         Add aliases to .bashrc."
     echo "  create_secrets      Setup secrets files."
     echo "  set_permissions     Set secure permissions for home folders."

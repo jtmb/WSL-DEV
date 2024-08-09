@@ -50,3 +50,4 @@ set_permissions() {
     
     echo "Permissions set successfully!"
 }
+

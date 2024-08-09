@@ -31,4 +31,5 @@ PERMISSIONS_CONFIG=(
     "$HOME/.ssh/id_* 600"
     "$HOME/.secrets 700"
     "$HOME/.repos 700"
+    "/scripts 700"
 )

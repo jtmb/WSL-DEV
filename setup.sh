@@ -3,11 +3,11 @@
 # Import Modules
 sudo chmod +x modules/*.sh
 source modules/opt_packages.sh
+source modules/env.sh
+source modules/vault.sh
 source modules/ansible.sh
 source modules/terraform.sh
-source modules/vault.sh
 source modules/help.sh
-source modules/env.sh
 source modules/bashrc_alias.sh
 source modules/git_config.sh
 source vars.sh
@@ -20,13 +20,14 @@ help_function() {
 # Function to install all components
 install_all() {
     install_packages
-    install_ansible
-    install_terraform
-    install_vault
-    add_aliases
     create_secrets
     set_permissions
+    install_vault
+    install_ansible
+    install_terraform
+    add_aliases
     configure_git
+    create_vault_auth_script
 }
 
 # Function to check if a function is defined
