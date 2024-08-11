@@ -12,7 +12,11 @@ GIT_USER_NAME="username-here"
 
 # Define versions and packages
 ANSIBLE_VERSION="2.16"
-PACKAGES=("jq" "net-tools" "zip")
+PACKAGES=(
+    "jq" 
+    "net-tools" 
+    "zip"
+)
 TERRAFORM_VERSION="1.4.0"
 VAULT_VERSION="1.13.0"
 
