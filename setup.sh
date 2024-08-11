@@ -18,7 +18,7 @@ help_function() {
 }
 
 # Function to install all components
-install_all() {
+all() {
     install_packages
     create_secrets
     set_permissions

@@ -24,7 +24,7 @@ VAULT_VERSION="1.13.0"
 # Define your aliases
 ALIASES=(
     "alias ll='ls -la'" #example
-    "alias wsl='cd /WSL-DEV && bash setup.sh'"
+    "alias wsl='WSL_CMD=wsl cd /WSL-DEV && bash setup.sh'"
     "alias auth-me='bash /scripts/vault-auth.sh'"
     "alias inv='bash /scripts/inventory-parser.sh'"
     "alias cdi='cd $HOME/.secrets/'"
@@ -43,4 +43,5 @@ PERMISSIONS_CONFIG=(
     "$HOME/.secrets 700"
     "$HOME/.repos 755"
     "/scripts 755"
+    "/WSL-DEV 755"
 )

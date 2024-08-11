@@ -1,17 +1,19 @@
-# Function to display help
+# Set the environment variable for the alias
+export WSL_CMD=wsl
 help() {
+    # Use the environment variable WSL_CMD if set, otherwise fall back to the script name
+    local cmd_name="${WSL_CMD:-$(basename "$0")}"
     echo
-    echo "Usage: $0 <command>"
-    echo 
-    echo "       $0 <command1> <command2 <command3>"
-    echo 
+    echo "Usage: $cmd_name <command>"
+    echo
+    echo "       $cmd_name <command1> [<command2> ... <commandN>]"
     echo
     echo "Commands:"
-    echo "  install_all         Install all components and add aliases."
+    echo "  all                 Install all components and add aliases."
     echo "  install_packages    Install required packages."
-    echo "  install_ansible      Install Ansible."
+    echo "  install_ansible     Install Ansible."
     echo "  install_terraform   Install Terraform."
-    echo "  install_vault       Install Vault."/
+    echo "  install_vault       Install Vault."
     echo "  add_aliases         Add aliases to .bashrc."
     echo "  create_secrets      Setup secrets files."
     echo "  set_permissions     Set secure permissions for home folders."
