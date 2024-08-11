@@ -68,4 +68,4 @@ case "$1" in
         ;;
 esac
 
-echo "Provisioning completed successfully!"
+echo "Provisioning completed successfully, please restart your wsl session."
