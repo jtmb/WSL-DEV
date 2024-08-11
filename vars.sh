@@ -1,7 +1,8 @@
-# Define secrets Directories
+# Define secrets dir
 export SECRETES_DIR="$HOME/.secrets"
+# Define extra dirs to be created
 export DIRECTORIES=(
-    "$HOME/repos2"
+    "$HOME/repos"
     "$HOME/temp"
 )
 
