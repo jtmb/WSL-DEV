@@ -6,7 +6,7 @@ help() {
     echo
     echo "Usage: $cmd_name <command>"
     echo
-    echo "       $cmd_name <command1> [<command2> ... <commandN>]"
+    echo "       $cmd_name <command1> <command2> <command3> "
     echo
     echo "Commands:"
     echo "  all                 Install all components and add aliases."
