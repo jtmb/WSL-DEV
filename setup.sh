@@ -20,6 +20,7 @@ help_function() {
 # Function to install all components
 all() {
     install_packages
+    create_directories
     create_secrets
     set_permissions
     install_vault
@@ -27,8 +28,7 @@ all() {
     install_terraform
     add_aliases
     configure_git
-    create_vault_auth_script
-    create_directories
+    create_vault_auth_script    
 }
 
 # Function to check if a function is defined

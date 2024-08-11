@@ -1,11 +1,3 @@
-# Define secrets dir
-export SECRETES_DIR="$HOME/.secrets"
-# Define extra dirs to be created
-export DIRECTORIES=(
-    "$HOME/repos"
-    "$HOME/temp"
-)
-
 # Set Git Creds
 GIT_USER_EMAIL="your-email-here"
 GIT_USER_NAME="username-here"
@@ -36,6 +28,15 @@ SECRETS_FILES=(
     "vault_token"
 )
 
+
+# Define secrets dir
+export SECRETES_DIR="$HOME/.secrets"
+# Define extra dirs to be created
+export DIRECTORIES=(
+    "$HOME/repos"
+    "$HOME/.ssh"
+    "$HOME/temp"
+)
 # Define permissions and file patterns
 PERMISSIONS_CONFIG=(
     "$HOME/.ssh 700"
