@@ -11,12 +11,13 @@ GIT_USER_EMAIL="your-email-here"
 GIT_USER_NAME="username-here"
 
 # Define versions and packages
-ANSIBLE_VERSION="2.16"
 PACKAGES=(
     "jq" 
     "net-tools" 
     "zip"
 )
+
+ANSIBLE_VERSION="2.16"
 TERRAFORM_VERSION="1.4.0"
 VAULT_VERSION="1.13.0"
 
