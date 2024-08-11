@@ -1,16 +1,13 @@
 # Function to create .secrets folder and files
 create_secrets() {
     echo "Creating .secrets directory..."
-    mkdir -p "$secrets_dir"
-    mkdir -p "$repos_dir"
-    
-    echo "Creating files..."
+    mkdir -p "$SECRETES_DIR"
     
     for file in "${SECRETS_FILES[@]}"; do
         # Check if file is inventory.ini and add specific content
         if [ "$file" == "inventory.ini" ]; then
             echo "Creating $file with content..."
-            cat <<EOF > "$secrets_dir/$file"
+            cat <<EOF > "$SECRETES_DIR/$file"
 [prd]
 desired_hostname_here      ansible_host=192.168.0.x
 
@@ -43,11 +40,25 @@ ansible_ssh_private_key_file=/home/$USER/.ssh/id_ed25519
 EOF
         else
             echo "Creating $file..."
-            touch "$secrets_dir/$file"
+            touch "$SECRETES_DIR/$file"
         fi
     done
     
     echo ".secrets folder and files created successfully!"
+}
+
+
+# Define the create_directories function
+create_directories() {
+    echo "Creating directories..."
+
+    for dir in "${DIRECTORIES[@]}"; do
+        # Create the directory
+        sudo mkdir -p "$dir"
+        echo "Created directory: $dir"
+    done
+
+    echo "All directories created successfully!"
 }
 
 # Function to set permissions for a folder and files

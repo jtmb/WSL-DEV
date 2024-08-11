@@ -28,6 +28,7 @@ install_all() {
     add_aliases
     configure_git
     create_vault_auth_script
+    create_directories
 }
 
 # Function to check if a function is defined

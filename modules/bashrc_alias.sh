@@ -54,7 +54,7 @@ add_aliases() {
 
     # Reload .bashrc
     echo "Reloading .bashrc..."
-    source "$bashrc_file"
+    source /home/$USER/.bashrc
 
     echo "Aliases added and .bashrc reloaded successfully!"
 }
