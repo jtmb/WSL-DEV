@@ -49,7 +49,7 @@ inv() {
     echo "Inventory Path: $inventory_path"
 
     # Run the ansible command
-    ansible "$host_or_group" -i "$inventory_path" -m shell -a "$command"
+    ansible "$host_or_group" -i "$inventory_path" -m shell -a "$command" --become --ask-become-pass
 }
 
 # Call the inv function with all script arguments

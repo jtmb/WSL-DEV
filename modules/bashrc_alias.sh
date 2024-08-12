@@ -1,20 +1,3 @@
-# Function to move the inventory.sh script to /scripts/inventory-parser.sh
-# move_script() {
-#     local source_file="inventory.sh"
-#     local target_file="/scripts/inventory-parser.sh"
-
-#     # Ensure the target directory exists
-#     sudo mkdir -p /scripts
-
-#     # Move the script to the target location
-#     sudo cp "$source_file" "$target_file"
-
-#     # Set executable permissions for the script
-#     sudo chmod +x "$target_file"
-
-#     echo "Script has been moved to $target_file and made executable."
-# }
-
 # Function to add aliases to .bashrc
 add_aliases() {
     local source_file="modules/inventory_parser.sh"
