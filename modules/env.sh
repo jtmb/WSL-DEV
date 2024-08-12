@@ -37,9 +37,6 @@ ansible_user=$USER
 ansible_port=22
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 ansible_ssh_private_key_file=/home/$USER/.ssh/id_ed25519
-
-[all:vars]
-ansible_become=true
 EOF
         else
             echo "Creating $file..."
