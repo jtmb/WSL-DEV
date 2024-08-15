@@ -51,7 +51,7 @@ inv() {
     # Debugging: Print the host/group, command, and sudo flag
     echo "Host or Group: $host_or_group"
     echo "Command: $command"
-    echo "Sudo Flag: $sudo_flag"
+    echo "Full command: ansible "$host_or_group" -i "$inventory_path" -m shell -a "$command" $sudo_flag"
 
     # Debugging: Print the path to inventory.ini
     local inventory_path="$(realpath .secrets/inventory.ini)"

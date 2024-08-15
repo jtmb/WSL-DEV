@@ -28,8 +28,14 @@
 ## Prerequisites
 - WSL Installed with atleast Ubuntu 22.04
 
-### Getting Started
+### Getting Started with the GUI Launcher
 
+( *Make sure to set your vars in vars.sh* )
+```shell
+./launcher.sh
+```
+
+### Using custom commands
 A simple run command gets your instance running:
 
 ( *Make sure to set your vars in vars.sh* )

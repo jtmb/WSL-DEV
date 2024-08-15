@@ -11,7 +11,7 @@ source modules/help.sh
 source modules/bashrc_alias.sh
 source modules/git_config.sh
 source modules/shell_themes.sh
-source vars.sh
+source vars/vars.sh
 
 # Function for help screen 
 help_function() {
