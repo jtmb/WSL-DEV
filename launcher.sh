@@ -3,8 +3,24 @@
 # Path to the setup script
 SETUP_SCRIPT="setup.sh"
 
+# Function to display ASCII art
+display_ascii_art() {
+    echo
+    cat << "EOF"
+██╗    ██╗███████╗██╗         ██████╗ ███████╗██╗   ██╗
+██║    ██║██╔════╝██║         ██╔══██╗██╔════╝██║   ██║
+██║ █╗ ██║███████╗██║         ██║  ██║█████╗  ██║   ██║
+██║███╗██║╚════██║██║         ██║  ██║██╔══╝  ╚██╗ ██╔╝
+╚███╔███╔╝███████║███████╗    ██████╔╝███████╗ ╚████╔╝ 
+ ╚══╝╚══╝ ╚══════╝╚══════╝    ╚═════╝ ╚══════╝  ╚═══╝  
+https://github.com/jtmb                                                                                                  
+EOF
+echo  
+}
+
 # Function to display a menu using select
 show_menu() {
+    display_ascii_art
     echo "Choose an action:"
     PS3="Enter your choice (1-13): "
     options=("Install All" "Create Directories" "Create Secrets" "Install Packages" "Set Permissions" "Install Ansible" "Install Terraform" "Install Vault" "Add Aliases" "Configure Git" "Vault Authentication Scripts" "Setup Custom Shell Themes" "Exit")

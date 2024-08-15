@@ -31,9 +31,13 @@
 ### Getting Started with the GUI Launcher
 
 ( *Make sure to set your vars in vars.sh* )
+
+Run the launcher and select the row value you wish to run.
 ```shell
 ./launcher.sh
 ```
+
+![alt text](src/image.png)
 
 ### Using custom commands
 A simple run command gets your instance running:
