@@ -16,11 +16,31 @@ VAULT_VERSION="1.13.0"
 # Define your aliases
 ALIASES=(
     "alias ll='ls -la'" #example
-    "alias wsl='WSL_CMD=wsl cd /WSL-DEV && bash setup.sh'"
+    "alias wsl='cd /WSL-DEV && bash setup.sh'"
     "alias auth-me='bash /scripts/vault-auth.sh'"
     "alias inv='bash /scripts/inventory-parser.sh'"
     "alias cdi='cd $HOME/.secrets/'"
 )
+
+# Define shell themes
+SHELL_THEMES="
+#Shell Themes
+# To revert to default WSL Theme, simply comment out the PS1 variable and source ~/.bashrc
+
+#User@host removed and current dir colour green
+#PS1='\[\033[01;32m\]\w\[\033[00m\] \$ '
+
+#User@host removed and current dir blue box white text, commands appear on line2 (Default set by WSL-DEV) 
+PS1='\[\033[44m\033[97m \w \033[0m\]\n\$ '
+
+#User@host removed and current dir colour green, commands appear on line2
+#PS1='\[\033[01;32m\]\w\[\033[00m\]\n\$'
+
+#ADD YOUR THEMES BELLOW THIS LINE
+#PS1=
+"
+
+
 # Define your Secrets
 SECRETS_FILES=(
     "inventory.ini"
