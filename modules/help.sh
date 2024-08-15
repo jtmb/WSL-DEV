@@ -18,5 +18,6 @@ help() {
     echo "  create_secrets      Setup secrets files."
     echo "  set_permissions     Set secure permissions for home folders."
     echo "  configure_git       Configure local git."
+    echo "   shell_themes       Install custom shell themes."
     echo "  -help               Display this help message."
 }
