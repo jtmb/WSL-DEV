@@ -40,14 +40,16 @@ Run the launcher and select the row value you wish to run.
 ![alt text](src/image.png)
 
 ### Using custom commands
-A simple run command gets your instance running:
+The launcher calls modules from ./setup.sh, you can do this as well if you want to integrate this with your own automation pipeline. 
 
-( *Make sure to set your vars in vars.sh* )
+For example:
+
+
 ```shell
 ./setup.sh install_all
 ```
 
-or run a specific module:
+or run a several specific modules:
 ```shell
 ./setup.sh \
     add_aliases \
