@@ -16,7 +16,8 @@
 
 
 - [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started) 
+- [Getting Started with the GUI Launcher](#getting-started-with-the-gui-launcher) 
+- [Using custom commands](#using-custom-commands)
 - [Environment Variables Explained](#environment-variables-explained)
 - [Contributing](#contributing)
 - [License](#license)
