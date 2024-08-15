@@ -52,8 +52,6 @@ or run a specific module:
 GIT_USER_EMAIL="your.email@gmail.com"
 GIT_USER_NAME="username"
 ```  
-text
-
 ```shell
 # Define versions and packages
 ANSIBLE_VERSION="2.16"
@@ -62,30 +60,29 @@ TERRAFORM_VERSION="1.4.0"
 VAULT_VERSION="1.13.0"
 
 ```  
-text
 
 ```shell
+# Define where secrets and repos locations will be
 export secrets_dir="$HOME/.secrets"
 export repos_dir="$HOME/.repos"
 ```
-text
 
 ```shell
+# Set custom aliases
 ALIASES=(
     "alias ll='ls -la'" #example
     "alias wsl='cd /WSL-DEV && bash setup.sh'" 
 )
 ```
-text
 
 ```shell
+# Create secrets files
 SECRETS_FILES=(
     "inventory.ini"
     "vault_server"
     "vault_token"
 )
 ```   
-text
 
 ```  shell
 # Define permissions and file patterns
@@ -96,7 +93,25 @@ PERMISSIONS_CONFIG=(
     "$HOME/.repos 700"
 )
 ```
-text  
+```shell
+#Define shell themes
+SHELL_THEMES="
+#Shell Themes
+# To revert to default WSL Theme, simply comment out the PS1 variable and source ~/.bashrc
+
+#User@host removed and current dir colour green
+#PS1='\[\033[01;32m\]\w\[\033[00m\] \$ '
+
+#User@host removed and current dir blue box white text, commands appear on line2 (Default set by WSL-DEV) 
+PS1='\[\033[44m\033[97m \w \033[0m\]\n\$ '
+
+#User@host removed and current dir colour green, commands appear on line2
+#PS1='\[\033[01;32m\]\w\[\033[00m\]\n\$'
+
+#ADD YOUR THEMES BELLOW THIS LINE
+#PS1=
+"
+```  
 ## Contributing
 
 First off, thanks for taking the time to contribute! Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make will benefit everybody else and are **greatly appreciated**.
