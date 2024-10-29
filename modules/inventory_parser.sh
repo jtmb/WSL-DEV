@@ -18,6 +18,21 @@ help() {
 
 # Function to execute ansible command
 inv() {
+    #Setup Scripts folder
+    local source_file="modules/inventory_parser.sh"
+    local target_file="/scripts/inventory-parser.sh"
+
+    # Ensure the target directory exists
+    sudo mkdir -p /scripts
+
+    # Move the script to the target location
+    sudo cp "$source_file" "$target_file"
+
+    # Set executable permissions for the script
+    sudo chmod +x "$target_file"
+
+    echo "Script has been moved to $target_file and made executable."
+
     # Check if at least 2 arguments are provided
     if [ $# -lt 2 ]; then
         help

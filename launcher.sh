@@ -22,8 +22,8 @@ echo
 show_menu() {
     display_ascii_art
     echo "Choose an action:"
-    PS3="Enter your choice (1-13): "
-    options=("Install All" "Create Directories" "Create Secrets" "Install Packages" "Set Permissions" "Install Ansible" "Install Terraform" "Install Vault" "Add Aliases" "Configure Git" "Vault Authentication Scripts" "Setup Custom Shell Themes" "Exit")
+    PS3="Enter your choice (1-14): "
+    options=("Install All" "Create Directories" "Create Secrets" "Install Packages" "Set Permissions" "Install Ansible" "Install Terraform" "Install Vault" "Add Aliases" "Configure Git" "Vault Authentication Scripts" "Setup Custom Shell Themes" "Setup Ansible Inventory"  "Exit")
     select opt in "${options[@]}"; do
         case $opt in
             "Install All")
@@ -61,6 +61,9 @@ show_menu() {
                 ;;
             "Setup Custom Shell Themes")
                 bash "$SETUP_SCRIPT" shell_themes
+                ;;
+            "Setup Ansible Inventory")
+                bash "$SETUP_SCRIPT" inv
                 ;;
             "Exit")
                 exit 0
