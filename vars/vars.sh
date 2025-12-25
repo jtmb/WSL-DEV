@@ -1,3 +1,5 @@
+export PATH=$PATH:/usr/bin
+
 # Set Git Creds
 GIT_USER_EMAIL="your-email-here"
 GIT_USER_NAME="username-here"
@@ -62,7 +64,7 @@ PERMISSIONS_CONFIG=(
     "$HOME/.ssh 700"
     "$HOME/.ssh/id_* 600"
     "$HOME/.secrets 700"
-    "$HOME/.repos 755"
+    "$HOME/repos 755"
     "/scripts 755"
     "/WSL-DEV 755"
 )

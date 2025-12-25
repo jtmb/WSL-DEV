@@ -77,7 +77,7 @@ VAULT_VERSION="1.13.0"
 ```shell
 # Define where secrets and repos locations will be
 export secrets_dir="$HOME/.secrets"
-export repos_dir="$HOME/.repos"
+export repos_dir="$HOME/repos"
 ```
 
 ```shell
@@ -103,7 +103,7 @@ PERMISSIONS_CONFIG=(
     "$HOME/.ssh 700"
     "$HOME/.ssh/id_* 600"
     "$HOME/.secrets 700"
-    "$HOME/.repos 700"
+    "$HOME/repos 700"
 )
 ```
 ```shell
