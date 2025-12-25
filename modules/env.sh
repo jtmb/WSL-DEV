@@ -49,7 +49,7 @@ EOF
 
 
 # Define the create_directories function
-create_() {
+create_directories() {
     echo "Creating directories..."
 
     for dir in "${DIRECTORIES[@]}"; do

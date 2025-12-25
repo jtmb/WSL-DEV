@@ -16,11 +16,11 @@ add_aliases() {
     echo "Script has been moved to $target_file and made executable."
     
     echo "Adding aliases to $bashrc_file..."
-    # Setup /WSL-DEV folder for wsl alias
-     rm -rfv /WSL-DEV > /dev/null
+    # Setup /wsl-dev folder for wsl alias
+    #  rm -rfv /wsl-dev > /dev/null
      cp -r $(pwd) / 
-     chmod 755 /WSL-DEV
-     chmod +x /WSL-DEV/setup.sh
+     chmod 755 /wsl-dev
+     chmod +x /wsl-dev/setup.sh
     
     # Backup the original .bashrc
     cp "$bashrc_file" "$bashrc_file.bak"

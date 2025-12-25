@@ -11,7 +11,6 @@ PACKAGES=(
     "zip"
 )
 
-ANSIBLE_VERSION="2.16"
 TERRAFORM_VERSION="1.4.0"
 VAULT_VERSION="1.13.0"
 
@@ -55,9 +54,9 @@ SECRETS_FILES=(
 export SECRETES_DIR="$HOME/.secrets"
 # Define extra dirs to be created
 export DIRECTORIES=(
-    "$HOME/repos"
+    "$HOME/dev/repos"
     "$HOME/.ssh"
-    "$HOME/temp"
+    "$HOME/dev/temp"
 )
 # Define permissions and file patterns
 PERMISSIONS_CONFIG=(
