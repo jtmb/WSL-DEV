@@ -2,16 +2,16 @@
 
 # Function to display usage information
 help() {
-    echo "Usage: inv <host_or_group> <command> [-sudo]"
+    echo "Usage: inv <host_or_group> <command> [-]"
     echo
     echo "Arguments:"
     echo "  <host_or_group>  The target host or group defined in the Ansible inventory."
     echo "  <command>        The shell command to be executed on the target host or group."
-    echo "  -sudo            Optional flag to run the command with sudo."
+    echo "  -            Optional flag to run the command with ."
     echo
     echo "Examples:"
     echo "  inv retropie \"uptime\""
-    echo "  inv prd \"df -h\" -sudo"
+    echo "  inv prd \"df -h\" -"
     echo
     echo "For more help, refer to the Ansible documentation."
 }
@@ -23,13 +23,13 @@ inv() {
     local target_file="/scripts/inventory-parser.sh"
 
     # Ensure the target directory exists
-    sudo mkdir -p /scripts
+     mkdir -p /scripts
 
     # Move the script to the target location
-    sudo cp "$source_file" "$target_file"
+     cp "$source_file" "$target_file"
 
     # Set executable permissions for the script
-    sudo chmod +x "$target_file"
+     chmod +x "$target_file"
 
     echo "Script has been moved to $target_file and made executable."
 
@@ -51,29 +51,29 @@ inv() {
 
     # Initialize variables
     local command=""
-    local sudo_flag=""
+    local _flag=""
 
-    # Check if the last argument is "-sudo"
-    if [ "${!#}" == "-sudo" ]; then
-        sudo_flag="--become --ask-become-pass"
-        # Remove "-sudo" from the arguments
+    # Check if the last argument is "-"
+    if [ "${!#}" == "-" ]; then
+        _flag="--become --ask-become-pass"
+        # Remove "-" from the arguments
         set -- "${@:1:$(($#-1))}"
     fi
 
     # Combine the remaining arguments into the command
     command="$*"
 
-    # Debugging: Print the host/group, command, and sudo flag
+    # Debugging: Print the host/group, command, and  flag
     echo "Host or Group: $host_or_group"
     echo "Command: $command"
-    echo "Full command: ansible "$host_or_group" -i "$inventory_path" -m shell -a "$command" $sudo_flag"
+    echo "Full command: ansible "$host_or_group" -i "$inventory_path" -m shell -a "$command" $_flag"
 
     # Debugging: Print the path to inventory.ini
     local inventory_path="$(realpath .secrets/inventory.ini)"
     echo "Inventory Path: $inventory_path"
 
     # Run the ansible command
-    ansible "$host_or_group" -i "$inventory_path" -m shell -a "$command" $sudo_flag
+    ansible "$host_or_group" -i "$inventory_path" -m shell -a "$command" $_flag
 }
 
 # Call the inv function with all script arguments

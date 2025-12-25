@@ -3,7 +3,7 @@
 install_vault() {
     echo "Installing Vault..."
     wget https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip
-    sudo unzip vault_${VAULT_VERSION}_linux_amd64.zip -d /usr/local/bin/
+     unzip vault_${VAULT_VERSION}_linux_amd64.zip -d /usr/local/bin/
     rm vault_${VAULT_VERSION}_linux_amd64.zip
 }
 
@@ -17,10 +17,10 @@ create_vault_auth_script() {
     # Check if the vault_server file exists
     if [ -e "$vault_server_file" ] && [ -e "$vault_token_file" ]; then
         echo "Creating /scripts directory..."
-        sudo mkdir -p "$script_dir"
+         mkdir -p "$script_dir"
         
         echo "Creating vault-auth.sh script..."
-        sudo tee "$script_path" > /dev/null <<EOF
+         tee "$script_path" > /dev/null <<EOF
 #!/bin/bash
 
 # Auth to Vault
@@ -44,7 +44,7 @@ fi
 EOF
 
         # Make the script executable
-        sudo chmod +x "$script_path"
+         chmod +x "$script_path"
         
         echo "vault-auth.sh script created successfully in /scripts!"
     else

@@ -54,7 +54,7 @@ create_directories() {
 
     for dir in "${DIRECTORIES[@]}"; do
         # Create the directory
-        sudo mkdir -p "$dir"
+         mkdir -p "$dir"
         echo "Created directory: $dir"
     done
 
@@ -76,13 +76,13 @@ set_permissions() {
             # Use a loop to handle wildcard patterns
             for file in $path; do
                 if [ -e "$file" ]; then
-                    sudo chmod "$perms" "$file"
+                     chmod "$perms" "$file"
                 else
                     echo "File or directory $file does not exist."
                 fi
             done
         else
-            sudo chmod -R "$perms" "$path"
+             chmod -R "$perms" "$path"
         fi
     done
     

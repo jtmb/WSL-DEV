@@ -1,0 +1,22 @@
+
+version: "3.9"
+
+services:
+  wsl-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: wsl-dev:latest
+    container_name: wsl-dev
+    tty: true
+    stdin_open: true
+    volumes:
+      - wsl-dev-apt:/var/lib/apt
+      - wsl-dev-dpkg:/var/lib/dpkg
+      - wsl-dev-cache:/var/cache/apt
+    entrypoint: ["bash", "./launcher.sh"]
+    restart: on-failure
+volumes:
+  wsl-dev-apt:
+  wsl-dev-dpkg:
+  wsl-dev-cache:

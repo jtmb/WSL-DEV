@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Import Modules
-sudo chmod +x modules/*.sh
+ chmod +x modules/*.sh
 source modules/opt_packages.sh
 source modules/env.sh
 source modules/vault.sh

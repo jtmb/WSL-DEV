@@ -5,22 +5,22 @@ add_aliases() {
     local bashrc_file="$HOME/.bashrc"
 
     # Ensure the target directory exists
-    sudo mkdir -p /scripts
+     mkdir -p /scripts
 
     # Move the script to the target location
-    sudo cp "$source_file" "$target_file"
+     cp "$source_file" "$target_file"
 
     # Set executable permissions for the script
-    sudo chmod +x "$target_file"
+     chmod +x "$target_file"
 
     echo "Script has been moved to $target_file and made executable."
     
     echo "Adding aliases to $bashrc_file..."
     # Setup /WSL-DEV folder for wsl alias
-    sudo rm -rfv /WSL-DEV > /dev/null
-    sudo cp -r $(pwd) / 
-    sudo chmod 755 /WSL-DEV
-    sudo chmod +x /WSL-DEV/setup.sh
+     rm -rfv /WSL-DEV > /dev/null
+     cp -r $(pwd) / 
+     chmod 755 /WSL-DEV
+     chmod +x /WSL-DEV/setup.sh
     
     # Backup the original .bashrc
     cp "$bashrc_file" "$bashrc_file.bak"
