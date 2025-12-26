@@ -24,7 +24,7 @@
             ]
         }
     },
-    "postCreateCommand": "bash /wsl-dev/setup.sh",
+    "postCreateCommand": "echo hello from devcontainer postCreateCommand",
     "mounts": [
         "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind",
         "source=${localEnv:HOME}/dev/container-storage/wsl-dev/home,target=/home/ubuntu,type=bind"
