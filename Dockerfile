@@ -7,7 +7,7 @@ ARG ANSIBLE_VERSION="2.19.5"
 ARG TERRAFORM_VERSION="1.4.0"
 ARG VAULT_VERSION="1.13.0"
 
-ENV TZ=ETC
+ENV TZ=UTC
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends bash ca-certificates sudo \
@@ -41,11 +41,8 @@ WORKDIR /wsl-dev
 
 # Copy launcher and supporting folders into /wsl-dev
 COPY launcher.sh /wsl-dev/launcher.sh
-COPY setup.sh /wsl-dev/setup.sh
-COPY modules/ /wsl-dev/modules/
-COPY vars/ /wsl-dev/vars/
 COPY docker-init.sh /usr/local/bin/docker-init.sh
-RUN chmod +x /wsl-dev/launcher.sh /wsl-dev/setup.sh
+RUN chmod +x /wsl-dev/launcher.sh
 RUN mkdir -p /home/ubuntu /home/ubuntu/dev /scripts /home/ubuntu/dev/repos \
  && touch /home/ubuntu/.bashrc \
  && chmod +x /usr/local/bin/docker-init.sh \ 

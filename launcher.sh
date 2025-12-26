@@ -4,15 +4,12 @@
 SETUP_SCRIPT="setup.sh"
 
 # Function to display ASCII art
-display_ascii_art() {
-    echo
-    cat << "EOF"
-██╗    ██╗███████╗██╗         ██████╗ ███████╗██╗   ██╗
-██║    ██║██╔════╝██║         ██╔══██╗██╔════╝██║   ██║
-██║ █╗ ██║███████╗██║         ██║  ██║█████╗  ██║   ██║
-██║███╗██║╚════██║██║         ██║  ██║██╔══╝  ╚██╗ ██╔╝
-╚███╔███╔╝███████║███████╗    ██████╔╝███████╗ ╚████╔╝ 
- ╚══╝╚══╝ ╚══════╝╚══════╝    ╚═════╝ ╚══════╝  ╚═══╝  
+display_ascii_art() {    cat << "EOF"
+ ____  _______     __  _____ ____  ___ ____ _  ______  
+|  _ \| ____\ \   / / |_   _|  _ \|_ _/ ___| |/ / ___| 
+| | | |  _|  \ \ / /    | | | |_) || | |   | ' /\___ \ 
+| |_| | |___  \ V /     | | |  _ < | | |___| . \ ___) |
+|____/|_____|  \_/      |_| |_| \_\___\____|_|\_\____/ 
 https://github.com/jtmb                                                                                                  
 EOF
 echo  
@@ -23,11 +20,11 @@ show_menu() {
     display_ascii_art
     echo "Choose an action:"
     PS3="Enter your choice (1-14): "
-    options=("Install All" "Create Directories" "Create Secrets" "Set Permissions" "Add Aliases" "Configure Git" "Vault Authentication Scripts" "Setup Custom Shell Themes" "Setup Ansible Inventory"  "Exit")
+    options=("Show IP" "placeholder" "placeholder" "placeholder" "placeholder" "placeholder" "placeholder" "placeholder" "placeholder"  "Exit")
     select opt in "${options[@]}"; do
         case $opt in
-            "Install All")
-                bash "$SETUP_SCRIPT" all
+            "Show IP")
+                ip addr show eth0 | grep 'inet ' | awk '{print $2}' | cut -d'/' -f1
                 ;;
             "Create Directories")
                 bash "$SETUP_SCRIPT" create_directories

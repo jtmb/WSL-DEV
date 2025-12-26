@@ -22,10 +22,15 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.bashrc /home/ubuntu/.profile /home/ubuntu
 
 # Give the ubuntu user ownership of the Docker socket so they can run docker without sudo inside the container
 sudo chown ubuntu:ubuntu /var/run/docker.sock
+mkdir -p "$HOME/repos" "$HOME/.ssh" "$HOME/dev/temp"
+chmod 700 "$HOME/.ssh" "$HOME/.secrets" && chmod 600 "$HOME/.ssh/id_"* 2>/dev/null
+chmod 755 "$HOME/repos" /scripts /wsl-dev
+
 
 # Add the 'ubuntu' user to the docker group so docker commands can be run without sudo.
 # -aG: append (-a) the user to the supplementary group (-G)
 sudo usermod -aG docker ubuntu
+set -e
 
 ## Add Aliases for xterm
 grep -q 'TERM=xterm-256color' ~/.bashrc || cat >> ~/.bashrc <<'EOF'
@@ -37,21 +42,13 @@ export TERM=xterm-256color
 PS1='\[\033[38;5;208m\]\u\[\033[0m\]@\[\033[38;5;250m\]\h \[\033[38;5;245m\]› \[\033[1;32m\]\w\[\033[0m\] \$ '
 EOF
 
-
-# Install an interactive banner into the system-wide bashrc so interactive shells show the banner.
 # Install an interactive banner into the system-wide bashrc so interactive shells show the banner.
 sudo tee /etc/bash.bashrc >/dev/null <<'EOF'
-
 # ---- Container Banner ----
-# Exit early for non-interactive shells
 [[ $- != *i* ]] && return
 
-# Fetch a random joke (fallback if curl fails)
 joke=$(curl -sfH "Accept: text/plain" https://icanhazdadjoke.com/ 2>/dev/null || echo "Welcome to your Dev Box! Stay awesome 😎")
-
 echo
-
-# ASCII art banner
 cat <<'BANNER'
 ██████╗ ███████╗██╗   ██╗    ██████╗  ███████╗ ██╗  ██╗
 ██╔══██╗██╔════╝██║   ██║    ██╔══██╗██╔═══██╗╚██╗██╔╝
@@ -62,39 +59,11 @@ cat <<'BANNER'
 https://github.com/jtmb
 BANNER
 
-# Footer section with joke and GitHub
 echo
 echo "──────────────────────────────"
 echo "🤖 $joke"
-echo "────────────────────────────────────────"
+echo "──────────────────────────────"
 echo
-
-# ---- End Banner ----
-
 EOF
 
-
-
-# sudo tee /etc/bash.bashrc >/dev/null <<'EOF'
-
-# # ---- Container Banner ----
-# # Exit early for non-interactive shells
-# [[ $- != *i* ]] && return
-
-# echo
-# cat << "BANNER"
-# ██████╗ ███████╗██╗   ██╗    ██████╗  ██████╗ ██╗  ██╗
-# ██╔══██╗██╔════╝██║   ██║    ██╔══██╗██╔═══██╗╚██╗██╔╝
-# ██║  ██║█████╗  ██║   ██║    ██████╔╝██║   ██║ ╚███╔╝ 
-# ██║  ██║██╔══╝  ╚██╗ ██╔╝    ██╔══██╗██║   ██║ ██╔██╗ 
-# ██████╔╝███████╗ ╚████╔╝     ██████╔╝╚██████╔╝██╔╝ ██╗
-# ╚═════╝ ╚══════╝  ╚═══╝      ╚═════╝  ╚═════╝ ╚═╝  ╚═╝
-# https://github.com/jtmb
-# BANNER
-# echo
-# # ---- End Banner ----
-
-# EOF
-
-# Keep container alive: launch an interactive bash shell so the container doesn't immediately exit
 exec bash

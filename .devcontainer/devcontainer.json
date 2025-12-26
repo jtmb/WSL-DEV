@@ -17,10 +17,10 @@
                 "editor.formatOnSave": true
             },
             "extensions": [
-                "ms-azuretools.vscode-docker",
-                "hashicorp.terraform",
-                "ms-python.python",
-                "ms-vscode.cpptools"
+                // "ms-azuretools.vscode-docker",
+                // "hashicorp.terraform",
+                // "ms-python.python",
+                // "ms-vscode.cpptools"
             ]
         }
     },
