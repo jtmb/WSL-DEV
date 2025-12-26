@@ -48,7 +48,7 @@ RUN chmod +x /wsl-dev/launcher.sh /wsl-dev/setup.sh
 RUN mkdir -p /home/ubuntu /home/ubuntu/dev /scripts /home/ubuntu/dev/repos \
  && touch /home/ubuntu/.bashrc \
  && chmod +x /usr/local/bin/docker-init.sh \ 
- && echo -e '#!/usr/bin/env bash\ncd /wsl-dev && exec /wsl-dev/launcher.sh "$@"' \
+ && echo '#!/usr/bin/env bash\ncd /wsl-dev && exec /wsl-dev/launcher.sh "$@"' \
     > /usr/local/bin/launcher \
  && chmod +x /usr/local/bin/launcher \ 
  && echo "ubuntu ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
@@ -56,7 +56,7 @@ RUN mkdir -p /home/ubuntu /home/ubuntu/dev /scripts /home/ubuntu/dev/repos \
 # Switch to the non-root user
 USER ubuntu
 ENV HOME=/home/ubuntu
-WORKDIR /home/ubuntu
+WORKDIR /home/ubuntu/repos
 
 # SHELL ["/bin/bash", "-c"]
 # RUN cd /wsl-dev && ./launcher.sh <<< "1"
