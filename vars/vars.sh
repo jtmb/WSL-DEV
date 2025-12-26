@@ -32,7 +32,7 @@ SHELL_THEMES="
 #PS1='\[\033[01;32m\]\w\[\033[00m\] \$ '
 
 #User@host removed and current dir blue box white text, commands appear on line2 (Default set by WSL-DEV) 
-PS1='\[\033[44m\033[97m \w \033[0m\]\n\$ '
+#PS1='\[\033[44m\033[97m \w \033[0m\]\n\$ '
 
 #User@host removed and current dir colour green, commands appear on line2
 #PS1='\[\033[01;32m\]\w\[\033[00m\]\n\$'
@@ -65,5 +65,5 @@ PERMISSIONS_CONFIG=(
     "$HOME/.secrets 700"
     "$HOME/repos 755"
     "/scripts 755"
-    "/WSL-DEV 755"
+    "/wsl-dev 755"
 )

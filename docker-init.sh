@@ -3,43 +3,41 @@
 
 USER=$(whoami)
 
+# copy container defaults if missing
+for f in /etc/skel/.*; do
+    [ -e "$f" ] || continue
+    base=$(basename "$f")
+    [ -e "/dev-box/home/$base" ] || cp -r "$f" "/dev-box/home/$base"
+done
+
 # Fix ownership of APT directories and /wsl-dev
-sudo chown -R ubuntu:ubuntu /wsl-dev /home/ubuntu/dev /usr/local/bin/
+sudo chown -R ubuntu:ubuntu /wsl-dev /home/ubuntu/dev /usr/local/bin/ ubuntu:ubuntu /scripts /home/ubuntu/.bashrc
+sudo cp /etc/skel/.bashrc /home/ubuntu/
+sudo cp /etc/skel/.profile /home/ubuntu/
+sudo cp /etc/skel/.bash_logout /home/ubuntu/
+sudo chown ubuntu:ubuntu /var/run/docker.sock
+sudo usermod -aG docker ubuntu
 
-# Optional: ensure /scripts is writable if you use it
-sudo mkdir -p /scripts
-sudo chown -R ubuntu:ubuntu /scripts
 
-# Show banner on login
+sudo tee /etc/bash.bashrc >/dev/null <<'EOF'
+
+# ---- Container Banner ----
+[[ $- != *i* ]] && return
+
 echo
-cat << "EOF"
-██╗    ██╗███████╗██╗         ██████╗ ███████╗██╗   ██╗
-██║    ██║██╔════╝██║         ██╔══██╗██╔════╝██║   ██║
-██║ █╗ ██║███████╗██║         ██║█████╗  ██║   ██║
-██║███╗██║╚════██║██║         ██║██╔══╝  ╚██╗ ██╔╝
-╚███╔███╔╝███████║███████╗    ██████╔╝███████╗ ╚████╔╝ 
- ╚══╝╚══╝ ╚══════╝╚══════╝    ╚═════╝  ╚══════╝  ╚═══╝  
+cat << "BANNER"
+██████╗ ███████╗██╗   ██╗    ██████╗  ██████╗ ██╗  ██╗
+██╔══██╗██╔════╝██║   ██║    ██╔══██╗██╔═══██╗╚██╗██╔╝
+██║  ██║█████╗  ██║   ██║    ██████╔╝██║   ██║ ╚███╔╝ 
+██║  ██║██╔══╝  ╚██╗ ██╔╝    ██╔══██╗██║   ██║ ██╔██╗ 
+██████╔╝███████╗ ╚████╔╝     ██████╔╝╚██████╔╝██╔╝ ██╗
+╚═════╝ ╚══════╝  ╚═══╝      ╚═════╝  ╚═════╝ ╚═╝  ╚═╝
 https://github.com/jtmb
-EOF
+BANNER
 echo
+# ---- End Banner ----
 
-# Check if Ansible is installed
-if command -v ansible-playbook &>/dev/null; then
-    ansible_version=$(ansible-playbook --version | head -n1 | awk '{print $2}')
-    echo "Ansible is installed (version $ansible_version)"
-else
-    echo "Ansible is NOT installed. Installing now..."
-    # Make sure your installer script exists and is executable
-    if [ -f /wsl-dev/install_ansible.sh ]; then
-        bash /wsl-dev/install_ansible.sh
-        echo "Ansible installation complete!"
-    else
-        echo "ERROR: /wsl-dev/install_ansible.sh not found. Cannot install Ansible."
-    fi
-fi
-
-# Launch your main dev launcher in the background
-/wsl-dev/launcher.sh &
+EOF
 
 # Keep container alive
 exec bash

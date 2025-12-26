@@ -1,11 +1,4 @@
 #!/bin/bash
-# Function to install Vault
-install_vault() {
-    echo "Installing Vault..."
-    wget https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip
-     unzip vault_${VAULT_VERSION}_linux_amd64.zip -d /usr/local/bin/
-    rm vault_${VAULT_VERSION}_linux_amd64.zip
-}
 
 # Function to create vault-auth.sh script if the Vault server file exists
 create_vault_auth_script() {
