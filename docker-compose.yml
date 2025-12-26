@@ -13,12 +13,4 @@ services:
       - ~/dev/container-storage/wsl-dev/home:/home/ubuntu
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker   # optional: if the container doesn't have docker cli
-      - wsl-dev-apt:/var/lib/apt
-      - wsl-dev-dpkg:/var/lib/dpkg
-      - wsl-dev-cache:/var/cache/apt
     restart: no
-
-volumes:
-  wsl-dev-apt:
-  wsl-dev-dpkg:
-  wsl-dev-cache:

@@ -4,16 +4,6 @@ export PATH=$PATH:/usr/bin
 GIT_USER_EMAIL="your-email-here"
 GIT_USER_NAME="username-here"
 
-# Define versions and packages
-PACKAGES=(
-    "jq" 
-    "net-tools" 
-    "zip"
-)
-
-TERRAFORM_VERSION="1.4.0"
-VAULT_VERSION="1.13.0"
-
 # Define your aliases
 ALIASES=(
     "alias ll='ls -la'" #example
@@ -37,6 +27,9 @@ SHELL_THEMES="
 #User@host removed and current dir colour green, commands appear on line2
 #PS1='\[\033[01;32m\]\w\[\033[00m\]\n\$'
 
+#User@host in orange and grey, current dir green
+PS1='\[\033[38;5;208m\]\u\[\033[0m\]@\[\033[0;37m\]\h \[\033[1;32m\]\w\[\033[0m\] \$ '
+
 #ADD YOUR THEMES BELLOW THIS LINE
 #PS1=
 "
@@ -49,12 +42,11 @@ SECRETS_FILES=(
     "vault_token"
 )
 
-
 # Define secrets dir
 export SECRETES_DIR="$HOME/.secrets"
 # Define extra dirs to be created
 export DIRECTORIES=(
-    "$HOME/dev/repos"
+    "$HOME/repos"
     "$HOME/.ssh"
     "$HOME/dev/temp"
 )

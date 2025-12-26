@@ -11,6 +11,7 @@ ENV TZ=ETC
 
 RUN apt-get update \
  && apt-get install -y --no-install-recommends bash ca-certificates sudo \
+    tree \
     python3-pip \
     software-properties-common \
     bash \
