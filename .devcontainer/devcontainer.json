@@ -2,7 +2,7 @@
     "name": "WSL Dev Container",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "wsl-dev",
-    "workspaceFolder": "/home/ubuntu/dev",
+    "workspaceFolder": "/home/ubuntu/repos",
     "shutdownAction": "stopCompose",
     "remoteUser": "ubuntu",
     "customizations": {
